@@ -1,0 +1,88 @@
+<main class="container-fluid">
+
+    <section class="row">
+        <mat-card appearance="outlined" class="hour-registry col-lg">
+            <mat-card-header>
+                <h4>Registrar Actividad</h4>
+                <h6 class="subtitle">Registra tu actividad según los siguientes datos</h6>
+            </mat-card-header>
+
+            <form [formGroup]="actividadForm" (ngSubmit)="registrarHora()">
+                <mat-form-field appearance="outline">
+                    <mat-label>Fecha de actividad</mat-label>
+                    <input matInput [matDatepicker]="picker" placeholder="Dia-Mes-Año" formControlName="fecha">
+                    <mat-hint align="end">DD/MM/YYYY</mat-hint>
+                    <mat-hint align="start">Ingresa la fecha del registro</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    @if (hasErrors('fecha')) {
+                    <mat-error>Fecha es obligatoria</mat-error>
+                    }
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Hora de inicio</mat-label>
+                    <mat-select matNativeControl formControlName="horaInic">
+                        @for (item of horasAM; track $index) {
+                        <mat-option value="{{item}}">{{item}} AM</mat-option>
+                        }
+                        @for (item of horasPM; track $index) {
+                        <mat-option value="{{item}}">{{item}} PM</mat-option>
+                        }
+                    </mat-select>
+                    <mat-hint align="start">Ingresa la hora de inicio del registro</mat-hint>
+                    @if (hasErrors('horaInic')) {
+                    <mat-error>Hora de inicio es obligatoria</mat-error>
+                    }
+
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Hora de término</mat-label>
+                    <mat-select matNativeControl formControlName="horaTerm">
+                        @for (item of horasAM; track $index) {
+                        <mat-option value="{{item}}">{{item}} AM</mat-option>
+                        }
+                        @for (item of horasPM; track $index) {
+                        <mat-option value="{{item}}">{{item}} PM</mat-option>
+                        }
+                    </mat-select>
+                    <mat-hint align="start">Ingresa la hora de termino del registro</mat-hint>
+                    @if (hasErrors('horaTerm')) {
+                    <mat-error>Hora de termino es obligatoria</mat-error>
+                    }
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Área de trabajo</mat-label>
+                    <mat-select matNativeControl formControlName="area">
+                        @for (item of areasTrabajo; track $index) {
+                        <mat-option value="{{item.id}}">{{item.nombre}}</mat-option>
+                        }
+                    </mat-select>
+                    <mat-hint align="start">Ingresa el area donde has prestado servicio</mat-hint>
+                    @if (hasErrors('area')) {
+                    <mat-error>Area de trabajo es obligatorio</mat-error>
+                    }
+                </mat-form-field>
+
+                <fieldset>
+                    <button matButton="filled" type="submit">Registrar Horas</button>
+                </fieldset>
+            </form>
+        </mat-card>
+
+        <mat-card appearance="outlined" class="col-lg">
+            <mat-card-header>
+                <h4>Horas registradas este mes</h4>
+                <h6 class="subtitle">Según el área de trabajo, y solo si están aprobadas </h6>
+            </mat-card-header>
+
+            <mat-card-content>
+                <div echarts [options]="chartOptions" class="chart-container"></div>
+            </mat-card-content>
+        </mat-card>
+
+    </section>
+
+</main>

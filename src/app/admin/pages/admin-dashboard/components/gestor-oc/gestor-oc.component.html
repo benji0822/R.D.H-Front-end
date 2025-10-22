@@ -1,0 +1,50 @@
+<main class="container-fluid">
+    <section class="row">
+        <h3>Gestor de Órdenes de Compra</h3>
+        <p>Adjunta un archivo Excel para ver los alumnos y sus órdenes de compra</p>
+
+        <article class="col-lg card">
+
+            <h4>Cargar Archivo Excel</h4>
+            <p>Haz clic para seleccionar para cargar tu archivo Excel</p>
+            <form (ngSubmit)="mandarExcel()">
+                <div class="input-group mb-3">
+                    <input type="file" class="form-control" id="inputGroupFile01" accept=".xlsx,.xls" (change)="onFileSelected($event)">
+                </div>
+                <button matButton="outlined" type="submit">Mostrar órdenes de compra</button>
+            </form>
+        </article>
+
+        <article class="col-lg-12">
+            <h3>Todas las órdenes de compra disponibles de alumnos ayudantes</h3>
+            <div class="scroll-container">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Alumno</th>
+                            <th scope="col">Rut</th>
+                            <th scope="col">Monto Total</th>
+                            <th scope="col">N° OC</th>
+                            <th scope="col">Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of reporteOC; track $index) {
+                        <tr>
+                            <td> {{item.ALUMNO}}</td>
+                            <td>{{item['RUT Alumno']}}</td>
+                            <td> {{item['Total BH OC']}} </td>
+                            <td> {{item['N° OC']}}</td>
+                            <td> <button matButton="outlined" type="submit" (click)="registrarOC(item['RUT Alumno'],item['N° OC'])">Enviar</button> </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </article>
+        <article class="col-lg-3">
+            <button matButton="outlined" type="submit" (click)="registrarAllOC()">Enviar todas</button>
+        </article>
+    </section>
+
+</main>

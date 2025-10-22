@@ -1,0 +1,157 @@
+<main class="container-fluid">
+
+    <section class="row resumen">
+        <h4>Resumen de este mes</h4>
+
+        <mat-card class="col">
+            <h5>Alumnos ayudantes:</h5>
+            <h6>{{alumnos}}</h6>
+            Alumnos
+        </mat-card>
+
+        <mat-card class="col">
+            <h5>Registros del mes</h5>
+            <h6>{{horasResumenMes}}</h6>
+            Hrs
+        </mat-card>
+
+        <mat-card class="col">
+            <h5>Registros en {{area}}</h5>
+            <h6>{{horaAreaMes}}</h6>
+            Hrs
+        </mat-card>
+
+    </section>
+
+    <section class="row">
+        <h4>Alumnos Ayudantes</h4>
+        <article class="col">
+            <div class="scroll-container">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Alumno</th>
+                            <th scope="col">Rut</th>
+                            <th scope="col">Teléfono</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (alumno of alumnosAyudantes; track $index) {
+                        <tr>
+                            <td scope="row"> {{alumno.nombre}} </td>
+                            <td> {{alumno.run}} </td>
+                            <td>{{alumno.fono}}</td>
+                            <td><button matButton="outlined" type="button" data-bs-toggle="modal" data-bs-target="#detalleModal"
+                                    (click)="mostrarDetalles(alumno.run)">Ver
+                                    detalles</button></td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </article>
+    </section>
+
+</main>
+
+<div class="modal fade" id="detalleModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <h4>Detalle del alumno ayudante</h4>
+                <main class="container-fluid">
+                    <section class="row">
+                        <article class="col-lg-12">
+                            <h4>Información del alumno</h4>
+                            <ul>
+                                <li>Nombre: {{nombre}}</li>
+                                <li>Run: {{run}}</li>
+                                <li>Correo electrónico: {{email}}</li>
+                                <li>Teléfono: {{fono}}</li>
+                            </ul>
+                        </article>
+
+                        <h4>Registros</h4>
+                        <mat-card appearance="outlined" class="col">
+                            <h5>{{horasTotales}}</h5>
+                            Total del mes
+                        </mat-card>
+
+                        <mat-card appearance="outlined" class="col">
+                            <h5>{{horasMes}}</h5>
+                            Por área
+                        </mat-card>
+
+                        <h4>Horas Aprobadas</h4>
+                        <article class="col-lg-12 table-horas">
+                            <div class="scroll-container">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Fecha</th>
+                                            <th scope="col">Hora inicio</th>
+                                            <th scope="col">Hora termino</th>
+                                            <th scope="col">Área de trabajo</th>
+                                            <th scope="col">Estado</th>
+                                        </tr>
+
+                                        @for (item of actividades; track $index) {
+                                        @if (item.estado == true) {
+                                        <tr>
+                                            <td scope="row">{{item.fecha}}</td>
+                                            <td>{{item.inicio}}</td>
+                                            <td>{{item.fin}}</td>
+                                            <td>{{item.area}}</td>
+                                            <td><span class="badge text-bg-success">Aprobada</span></td>
+
+                                        </tr>
+                                        }
+                                        }
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+
+                        <h4>Horas no aprobadas</h4>
+
+                        <article class="col-lg-12 table-solicitud">
+                            <div class="scroll-container">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Fecha</th>
+                                            <th scope="col">Hora inicio</th>
+                                            <th scope="col">Hora termino</th>
+                                            <th scope="col">Área de trabajo</th>
+                                            <th scope="col">Estado</th>
+                                        </tr>
+
+                                        @for (item of actividades; track $index) {
+                                        @if (item.estado == false) {
+                                        <tr>
+                                            <td scope="row">{{item.fecha}}</td>
+                                            <td>{{item.inicio}}</td>
+                                            <td>{{item.fin}}</td>
+                                            <td>{{item.area}}</td>
+                                            <td><span class="badge text-bg-warning">En observación</span></td>
+                                        </tr>
+                                        }
+                                        }
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+</div>

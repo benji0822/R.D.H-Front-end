@@ -1,0 +1,53 @@
+main{
+    padding: 2vh;
+    height: 89.1vh;
+}
+
+section{
+    padding: 2vh;
+    gap: 2vh;
+}
+
+.hour-registry mat-card-header{
+    display: flex;
+    flex-direction: column;
+}
+
+h4,h6{
+    text-align: center;
+}
+
+.hour-registry form{
+    padding: 2vh;
+    gap: 2vh;
+    display: flex;
+    flex-direction: column;
+}
+
+mat-card-header{
+    display: flex;
+    flex-direction: column;
+}
+
+h4,.subtitle{
+    text-align: center;
+}
+
+
+@media (max-width:768px) {
+    main{
+        padding: 2vh;
+    }
+
+    section {
+        gap: 2vh;
+    }
+
+    mat-card-content{
+        padding: 0;
+    }
+
+    mat-card{
+        padding: 1vh;
+    }
+}

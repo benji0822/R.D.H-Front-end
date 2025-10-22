@@ -1,0 +1,58 @@
+<main class="container-fluid">
+  <section class="row">
+    <form class="col-lg-6" [formGroup]="loginForm" (ngSubmit)="login()">
+      <h2>Inicio de sesión</h2>
+      <mat-form-field appearance="outline">
+        <mat-label>Correo electronico</mat-label>
+        <input matInput placeholder="Ingresa tu correo electronico" formControlName="email" name="email"
+          autocomplete="email" (blur)="hasErrors('email','required')" required />
+        <mat-hint align="end">{{showCounter("email")}}/50</mat-hint>
+        <mat-hint align="start">Ingresa tu correo electronico institucional</mat-hint>
+        @if (hasErrors('email','required')) {
+        <mat-error>Correo electronico es requerido</mat-error>
+        }@else if (hasErrors('email','email')) {
+        <mat-error>Correo electronico no valido!</mat-error>
+        }
+        @else if (hasErrors('email','minlength')) {
+        <mat-error>Debe tener mas de 5 caracteres</mat-error>
+        }
+        @else if (hasErrors('email','maxlength')) {
+        <mat-error>Debe tener menos de 50 caracteres</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [type]="hide() ? 'password' : 'text'" formControlName="password" name="password"
+          autocomplete="current-password" placeholder="Ingresa tu contraseña" />
+        <button type="button" mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide()">
+          <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-hint align="end">{{showCounter("password")}}/50</mat-hint>
+        <mat-hint align="start">Ingresa tu contraseña de la aplicacion</mat-hint>
+        @if (hasErrors('password','minlength')) {
+        <mat-error>Debe tener mas de 5 caracteres</mat-error>
+        }
+        @else if (hasErrors('password','maxlength')) {
+        <mat-error>Debe tener menos de 50 caracteres</mat-error>
+        }
+        @else if (hasErrors('password','required')) {
+        <mat-error>Contraseña requerida</mat-error>
+        }
+      </mat-form-field>
+
+      @if (!cargando) {
+      <button matButton="filled" type="submit">Iniciar sesión</button>
+      }@else {
+      <fieldset>
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </fieldset>
+      }
+      <a matButton [routerLink]="'/forgot-password'">¿Olvidaste tu contraseña?</a>
+    </form>
+
+  </section>
+</main>

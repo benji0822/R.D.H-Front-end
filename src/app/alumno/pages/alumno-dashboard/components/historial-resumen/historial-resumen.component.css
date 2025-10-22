@@ -1,0 +1,126 @@
+section {
+    margin-bottom: 2vh;
+}
+
+h3,h6{
+    text-align: center;
+}
+
+main section:nth-child(2) {
+    align-items: center;
+}
+
+.mat-mdc-form-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+@media (max-width:991px) {
+    mat-form-field {
+        width: 13rem;
+    }
+}
+
+@media(max-width:366px) {
+    mat-form-field {
+        height: 1.3rem;
+    }
+
+    h6 {
+        font-size: 11px;
+    }
+}
+
+/* cuadros de areas que muestran la cantidad de horas 991 */
+main {
+    padding: 2vh;
+}
+
+section.row {
+    gap: 2vh;
+}
+
+
+article div.container-fluid .row {
+    gap: 2vh;
+}
+
+
+article div.container-fluid .row .col {
+    padding: 2vh;
+    margin-top: 2vh;
+    border-radius: 2vh;
+}
+
+#difusion {
+    background-color: #DBEAFE;
+}
+
+#difusion h4,
+#difusion h6 {
+    color: #1D4ED8;
+}
+
+
+#extension {
+    background-color: #DBEAFE;
+}
+
+#extension h4,
+#extension h6 {
+    color: #047857;
+}
+
+#comunicacion {
+    background-color: #FEF9C3;
+}
+
+#comunicacion h4,
+#comunicacion h6 {
+    color: #A16207;
+}
+
+#desarrollo-laboral {
+    background-color: #FEE2E2;
+}
+
+#desarrollo-laboral h4,
+#desarrollo-laboral h6 {
+    color: #B91C1C;
+}
+
+
+/* desktop */
+@media (min-width:1024px) {}
+
+/* tablets */
+@media (min-width:768px) and (max-width:1023px) {}
+
+/* movil */
+@media (max-width:767px) {
+    .container-fluid {
+        padding: 1vh;
+    }
+
+    .row h3,
+    .row h6 {
+        text-align: center;
+    }
+
+    .col-lg-2 {
+        text-align: left !important;
+    }
+
+    .area-section .container-fluid .row .col {
+        display: flex;
+        gap: 2vh;
+    }
+
+    .area-section .container-fluid .row .col h4,
+    .area-section .container-fluid .row .col h6 {
+        font-size: .75rem;
+    }
+
+
+}

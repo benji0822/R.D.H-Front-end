@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* variables css */
+:root {
+
+    /*textos*/
+    --titulos: 'Merriweather', serif;
+    --base: 'Roboto', sans-serif;
+
+    --general-text-color: #000;
+    --general-background: #fff;
+    --nav-background: #F8F9FA;
+    --primary-color: #36243E;
+
+    --difusion-background: #8FA8ED;
+    --extension-background: #9FE080;
+    --comunicacion-background: #FFDC60;
+    --desarrllo-laboral-background: #FF7070;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: var(--titulos);
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.5em;
+}
+
+p {
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 1em;
+    font-size: 1rem;
+}

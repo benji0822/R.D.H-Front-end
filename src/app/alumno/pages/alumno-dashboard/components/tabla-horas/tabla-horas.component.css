@@ -1,0 +1,85 @@
+section {
+    padding: 4vh;
+    gap: 4vh;
+}
+
+mat-card {
+    padding: 0;
+    background-color: #fff;
+}
+
+mat-card-content {
+    padding: 0;
+}
+
+h3 {
+    text-align: center;
+}
+
+
+th {
+    text-align: center;
+    background-color: #0D6EFD;
+    color: #fff;
+}
+
+td {
+
+    text-align: center;
+}
+
+.scroll-container {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.scroll-container thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+table {
+    border-radius: 0.375em;
+}
+
+.card {
+    padding: 0;
+    border: none;
+}
+
+
+/* desktop */
+@media (min-width:1024px) {}
+
+/* tablets */
+@media (min-width:768px) and (max-width:1023px) {}
+
+/* movil */
+@media (max-width:767px) {
+    .row {
+        padding: 1vh;
+        gap: 1vh;
+    }
+
+    th {
+        font-size: .75rem;
+        text-align: center;
+    }
+
+    td {
+        font-size: .75rem;
+    }
+
+    .table td,
+    .table th {
+        white-space: nowrap;
+        /* No permitir saltos de línea */
+        text-overflow: ellipsis;
+        /* Agrega "..." si el texto es muy largo */
+        overflow: hidden;
+        /* Oculta el contenido que desborda */
+        max-width: 200px;
+        /* Ajusta según el ancho disponible */
+    }
+}

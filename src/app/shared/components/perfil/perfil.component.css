@@ -1,0 +1,15 @@
+main.container-fluid{
+    height: 100vh;
+    padding: 2vh;
+}
+
+section.row{
+    padding: 2vh;
+    justify-content: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}

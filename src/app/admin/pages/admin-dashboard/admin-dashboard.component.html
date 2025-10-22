@@ -1,0 +1,77 @@
+<header>
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="light">
+        <div class="container-fluid">
+            <img src="assets/Logo.webp" alt="">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/admin/perfil" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{exact:true}"> Mi perfil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/admin/solicitudes" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{exact:true}">Solicitudes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" routerLink="/admin/alumnos" routerLinkActive="active"> Alumnos
+                            Ayudantes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/admin/gestor_oc" routerLinkActive="active"> Ordenes de
+                            compra</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="exportar" (click)="downloadExcel()" role="button">Exportar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="logout()" role="button">Cerrar sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+
+<div class="container-fluid">
+    <div class="row g-0 flex-column flex-md-row">
+
+        <aside class="col-12 col-md-3 col-lg-2 bg-light sidebar py-3 mb-2 mb-md-0">
+            <h4>Administración</h4>
+            <nav
+                class="nav flex-row flex-md-column justify-content-center justify-content-md-start text-center text-md-start">
+                <a class="nav-link" routerLink="/admin/perfil" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact:true}"><img src="assets/iconos/perfil.svg"> Mi perfil</a>
+
+                <a class="nav-link" routerLink="/admin/solicitudes" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact:true}"> <img src="assets/iconos/solicitud.svg"> Solicitudes</a>
+
+                <a class="nav-link active" routerLink="/admin/alumnos" routerLinkActive="active"> <img
+                        src="assets/iconos/usuarios.svg" alt=""> Alumnos Ayudantes</a>
+
+                <a class="nav-link" routerLink="/admin/gestor_oc" routerLinkActive="active"> <img
+                        src="assets/iconos/orden_compra.svg"> Ordenes de compra</a>
+
+                <a class="nav-link" id="exportar" (click)="downloadExcel()"> <img src="assets/iconos/excel.svg">
+                    Exportar</a>
+
+                <a class="nav-link" (click)="logout()" role="button"> <img src="assets/iconos/logOut.svg"> Cerrar
+                    sesión</a>
+            </nav>
+        </aside>
+
+        <main class="col-12 col-md-9 col-lg-10 px-1 py-1">
+            @if(loading) {
+                <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            }@else {
+                <router-outlet></router-outlet>
+            }
+        </main>
+    </div>
+</div>

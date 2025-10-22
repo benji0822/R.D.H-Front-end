@@ -1,0 +1,19 @@
+/* header section */
+
+
+/* nav section */
+mat-toolbar img{
+    width: 15%;
+}
+
+
+/* side nav section */
+
+.offcanvas-sm{
+    width: 60%;
+
+}
+
+.example-spacer{
+    flex: 1 1 auto;
+}

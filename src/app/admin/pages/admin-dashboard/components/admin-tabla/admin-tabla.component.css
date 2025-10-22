@@ -1,0 +1,102 @@
+main{
+    height: 100vh;
+}
+
+
+.resumen{
+    padding: 2vh;
+    gap: 2vh;
+    margin-bottom: 2vh;
+}
+
+mat-card{
+    padding: 2vh;
+    text-align: center;
+}
+
+
+th {
+    text-align: center;
+    background-color: #0D6EFD;
+    color: #fff;
+}
+
+td {
+
+    text-align: center;
+}
+
+.scroll-container {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.scroll-container thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+table {
+    border-radius: 0.375em;
+}
+
+
+
+td,th,h3,h4,h6{
+    text-align: center;
+}
+
+
+
+/* modal */
+.modal-body{
+    padding: 1vh;
+}
+
+.modal-body main {
+    padding: 0;
+}
+
+.modal-body main section{
+    padding: 2vh;
+    gap: 2vh;
+}
+
+.modal-body main section mat-card,
+.modal-body main section mat-card h4
+{
+    text-align: center;
+}
+
+/* desktop */
+@media (min-width:1024px) {}
+
+/* tablets */
+@media (min-width:768px) and (max-width:1023px) {}
+/* movil */
+@media (max-width:767px){
+
+    .col{
+        font-size: .75rem;
+        text-align: center;
+    }
+
+    .col h4{
+        font-size: .75rem;
+    }
+
+
+    .table td,
+    .table th {
+        white-space: nowrap;
+        /* No permitir saltos de línea */
+        text-overflow: ellipsis;
+        /* Agrega "..." si el texto es muy largo */
+        overflow: hidden;
+        /* Oculta el contenido que desborda */
+        max-width: 200px;
+        /* Ajusta según el ancho disponible */
+    }
+  
+}

@@ -1,0 +1,71 @@
+<header>
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="light">
+        <div class="container-fluid">
+            <img src="assets/Logo.webp" alt="">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/alumno/perfil" [routerLinkActiveOptions]="{exact:true}"
+                            routerLinkActive="active"> Mi perfil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/alumno/registro_horas" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{exact:true}"> Registrar hora</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/alumno/horas_mes" routerLinkActive="active"> Mis horas de este
+                            mes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" routerLink="/alumno/historial" routerLinkActive="active">
+                            Historial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="logout()" role="button">Cerrar sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container-fluid">
+    <div class="row g-0 flex-column flex-md-row">
+
+        <aside class="col-12 col-md-3 col-lg-2 bg-light sidebar py-3 mb-2 mb-md-0">
+            <h4>Alumno Ayudante</h4>
+            <nav
+                class="nav flex-row flex-md-column justify-content-center justify-content-md-start text-center text-md-start">
+
+                <a class="nav-link" routerLink="/alumno/perfil" [routerLinkActiveOptions]="{exact:true}"
+                    routerLinkActive="active"> <img src="assets/iconos/perfil.svg"> Mi perfil</a>
+
+                <a class="nav-link" routerLink="/alumno/registro_horas" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact:true}"> <img src="assets/iconos/formulario.svg"> Registrar
+                    hora</a>
+
+                <a class="nav-link" routerLink="/alumno/horas_mes" routerLinkActive="active"> <img
+                        src="assets/iconos/informe.svg"> Mis horas de este mes</a>
+
+                <a class="nav-link active" routerLink="/alumno/historial" routerLinkActive="active"> <img
+                        src="assets/iconos/historial.svg" alt=""> Historial</a>
+
+                <a class="nav-link" (click)="logout()" role="button"> <img src="assets/iconos/logOut.svg"> Cerrar
+                    sesión</a>
+            </nav>
+        </aside>
+
+        <main class="col-12 col-md-9 col-lg-10 px-1 py-1">
+            @if (loading) {
+                <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            }@else {
+                <router-outlet></router-outlet>
+            }            
+        </main>
+    </div>
+</div>

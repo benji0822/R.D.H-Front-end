@@ -1,0 +1,69 @@
+.title {
+    padding: 2vh;
+}
+
+.title h3 {
+    text-align: center;
+}
+
+section {
+    gap: 1vh;
+    padding: 2vh;
+}
+
+mat-card {
+    padding: 2vh;
+}
+
+.header h6 {
+    text-align: center;
+}
+
+.header h6 img {
+    width: 9%;
+}
+
+.content h4 {
+    text-align: center;
+}
+
+.footer {
+    text-align: center;
+}
+
+
+
+/* desktop */
+@media (min-width:1024px) {}
+
+/* tablets */
+@media (min-width:768px) and (max-width:1023px) {}
+
+/* movil */
+@media (max-width:767px) {
+    section {
+        justify-content: center;
+        padding: 0;
+        gap: 1vh;
+    }
+
+    mat-card {
+        padding: 1vh;
+    }
+
+    .header {
+        padding: 1vh;
+    }
+
+    .header h6 {
+        font-size: .75rem;
+    }
+
+    .content h4 {
+        font-size: .75rem;
+    }
+
+    .footer{
+        font-size: .75rem;
+    }
+}

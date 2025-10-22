@@ -1,0 +1,68 @@
+section {
+    padding: 2vh;
+    gap: 4vh;
+}
+
+.container-fluid .row h3,
+.container-fluid .row p {
+    text-align: center;
+}
+
+
+.card {
+    padding: 4vh;
+}
+
+.card p {
+    text-align: start !important;
+}
+
+th {
+    text-align: center;
+    background-color: #0D6EFD;
+    color: #fff;
+}
+
+td {
+
+    text-align: center;
+}
+
+.scroll-container {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.scroll-container thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+table {
+    border-radius: 0.375em;
+}
+
+
+/* desktop */
+@media (min-width:1024px) {}
+
+/* tablets */
+@media (min-width:768px) and (max-width:1023px) {}
+
+/* movil */
+@media (max-width:767px) {
+
+    .table td,
+    .table th {
+        white-space: nowrap;
+        /* No permitir saltos de línea */
+        text-overflow: ellipsis;
+        /* Agrega "..." si el texto es muy largo */
+        overflow: hidden;
+        /* Oculta el contenido que desborda */
+        max-width: 200px;
+        /* Ajusta según el ancho disponible */
+    }
+
+}

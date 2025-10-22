@@ -1,0 +1,82 @@
+main{
+  height: 100vh;
+}
+
+h3,h5 {
+  text-align: center;
+}
+
+section {
+  margin-top: 2vh;
+  gap: 2vh;
+}
+
+table tbody tr td button {
+  padding: 0.35em 0.65em;
+  font-size: 0.75em;
+  font-weight: 700;
+  border-radius: 0.375em;
+  color: #fff;
+  background-color: blue;
+  outline: none;
+  border: none;
+  transition: 0.5s ease background-color;
+}
+
+td,
+th {
+  text-align: center;
+}
+
+table tbody tr td button:hover {
+  background-color: #012C56;
+}
+
+th {
+    text-align: center;
+    background-color: #0D6EFD;
+    color: #fff;
+}
+
+td {
+
+    text-align: center;
+}
+
+.scroll-container {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.scroll-container thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+table {
+    border-radius: 0.375em;
+}
+
+
+/* desktop */
+@media (min-width:1024px) {}
+
+/* tablets */
+@media (min-width:768px) and (max-width:1023px) {}
+
+/* movil */
+@media (max-width:767px) {
+
+  .table td,
+  .table th {
+    white-space: nowrap;
+    /* No permitir saltos de línea */
+    text-overflow: ellipsis;
+    /* Agrega "..." si el texto es muy largo */
+    overflow: hidden;
+    /* Oculta el contenido que desborda */
+    max-width: 200px;
+    /* Ajusta según el ancho disponible */
+  }
+}

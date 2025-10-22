@@ -1,0 +1,97 @@
+<main class="container-fluid">
+    <h3>Solicitudes de este mes</h3>
+    <section class="row">
+        <article class="col-lg">
+            <h5>Solicitudes aprobadas</h5>
+            <div class="scroll-container">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha Actividad</th>
+                            <th scope="col">Alumno</th>
+                            <th scope="col">Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of solicitudes; track $index) {
+                        @if (item.estado === true) {
+                        <tr>
+                            <td> {{item.fecha}} </td>
+                            <td>{{item.alumno}}</td>
+                            <td><span class="badge text-bg-success">Aprobada</span></td>
+
+                        </tr>
+                        }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </article>
+
+        <article class="col-lg">
+            <h5>Solicitudes no aprobadas</h5>
+            <div class="scroll-container">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha Actividad</th>
+                            <th scope="col">Alumno</th>
+                            <th scope="col">Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of solicitudes; track $index) {
+                        @if (item.estado === false) {
+                        <tr>
+                            <td> {{item.fecha}} </td>
+                            <td>{{item.alumno}}</td>
+                            <td> <button (click)="confirmarActualizacion(item.id)">Aprobar</button> </td>
+
+                        </tr>
+                        }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </article>
+    </section>
+
+    <section class="row">
+        <h3>Todas las solicitudes</h3>
+        <article class="col-lg">
+            <div class="scroll-container">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha Actividad</th>
+                            <th scope="col">Alumno</th>
+                            <th scope="col">Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of allSolicitudes; track $index) {
+                        @if (item.estado == false) {
+                        <tr>
+                            <td> {{item.fecha}} </td>
+                            <td>{{item.alumno}}</td>
+                            <td> <span class="badge rounded-pill text-bg-warning">En observación</span> </td>
+                        </tr>
+                        }
+                        @if (item.estado == true) {
+                        <tr>
+                            <td> {{item.fecha}} </td>
+                            <td>{{item.alumno}}</td>
+                            <td> <span class="badge rounded-pill text-bg-success">Aprobado</span> </td>
+                        </tr>
+                        }
+
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </article>
+
+    </section>
+</main>
